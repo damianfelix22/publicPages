@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pivot Club | Soporte</title>
+    <meta
+      name="description"
+      content="Canales de soporte, términos y condiciones, y política de privacidad de Pivot Club."
+    />
+    <style>
+      :root {
+        --bg: #0f1115;
+        --panel: #171a21;
+        --panel-alt: #1e232d;
+        --text: #f3f4f6;
+        --muted: #a8b0bd;
+        --accent: #d7b46a;
+        --accent-strong: #efcb7f;
+        --border: rgba(255, 255, 255, 0.08);
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top, rgba(215, 180, 106, 0.14), transparent 30%),
+          linear-gradient(180deg, #0b0d11 0%, var(--bg) 100%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .wrap {
+        width: min(960px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 56px 0 72px;
+      }
+
+      .hero {
+        padding: 32px;
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 12px;
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1;
+      }
+
+      .lead {
+        max-width: 680px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.65;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        margin-top: 28px;
+      }
+
+      .card {
+        padding: 24px;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        background: var(--panel);
+      }
+
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .links {
+        display: grid;
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .link-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 18px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--panel-alt);
+        text-decoration: none;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          background 0.18s ease;
+      }
+
+      .link-item:hover {
+        transform: translateY(-2px);
+        border-color: rgba(215, 180, 106, 0.4);
+        background: #242a35;
+      }
+
+      .link-label {
+        display: block;
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .link-value {
+        display: block;
+        margin-top: 4px;
+        font-weight: 600;
+      }
+
+      .arrow {
+        color: var(--accent-strong);
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+
+      footer {
+        margin-top: 26px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 720px) {
+        .wrap {
+          width: min(100% - 20px, 960px);
+          padding-top: 24px;
+        }
+
+        .hero,
+        .card {
+          padding: 22px;
+          border-radius: 22px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .link-item {
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <span class="eyebrow">Pivot Club</span>
+        <h1>Soporte y contacto</h1>
+        <p class="lead">
+          Si necesitás ayuda con la app, consultas sobre tu cuenta o información legal,
+          en esta página vas a encontrar los canales de contacto oficiales y los accesos
+          directos a los términos y condiciones y a la política de privacidad.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <h2>Contacto</h2>
+            <p>
+              Respondemos consultas relacionadas con soporte general, acceso a la app
+              y asistencia comercial.
+            </p>
+
+            <div class="links">
+              <a class="link-item" href="mailto:lucas.flx.09@gmail.com">
+                <span>
+                  <span class="link-label">Correo electrónico</span>
+                  <span class="link-value">lucas.flx.09@gmail.com</span>
+                </span>
+                <span class="arrow">↗</span>
+              </a>
+
+              <a
+                class="link-item"
+                href="https://wa.me/542664752590"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>
+                  <span class="link-label">WhatsApp / Teléfono</span>
+                  <span class="link-value">+54 2664 752590</span>
+                </span>
+                <span class="arrow">↗</span>
+              </a>
+
+              <a
+                class="link-item"
+                href="https://instagram.com/pivot.kine"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>
+                  <span class="link-label">Instagram</span>
+                  <span class="link-value">@pivot.kine</span>
+                </span>
+                <span class="arrow">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h2>Información legal</h2>
+            <p>
+              Los siguientes documentos son los mismos enlaces legales configurados
+              actualmente en la aplicación.
+            </p>
+
+            <div class="links">
+              <a
+                class="link-item"
+                id="terms-link"
+                href="https://terms.pivotcompany.site/useterms.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>
+                  <span class="link-label">Términos y condiciones</span>
+                  <span class="link-value">Ver documento</span>
+                </span>
+                <span class="arrow">↗</span>
+              </a>
+
+              <a
+                class="link-item"
+                id="privacy-link"
+                href="https://terms.pivotcompany.site/privacy.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>
+                  <span class="link-label">Política de privacidad</span>
+                  <span class="link-value">Ver documento</span>
+                </span>
+                <span class="arrow">↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        Pivot Club · San Luis, Argentina
+      </footer>
+    </main>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import {
+        getFirestore,
+        doc,
+        getDoc,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+      const defaults = {
+        terms_conditions: "https://terms.pivotcompany.site/useterms.html",
+        privacy_policy: "https://terms.pivotcompany.site/privacy.html",
+      };
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDCRXv8YXYN-M1X2GB0n5a-YzvNkp40oOo",
+        authDomain: "pivottraining-4678b.firebaseapp.com",
+        projectId: "pivottraining-4678b",
+        storageBucket: "pivottraining-4678b.appspot.com",
+        messagingSenderId: "417119868416",
+        appId: "1:417119868416:web:8e6405ed8d58388897aae5",
+        measurementId: "G-H1F974ND7C",
+      };
+
+      const termsLink = document.getElementById("terms-link");
+      const privacyLink = document.getElementById("privacy-link");
+
+      function applyLinks(data) {
+        const terms = (data.terms_conditions || "").trim() || defaults.terms_conditions;
+        const privacy = (data.privacy_policy || "").trim() || defaults.privacy_policy;
+
+        termsLink.href = terms;
+        privacyLink.href = privacy;
+      }
+
+      async function loadLegalLinks() {
+        applyLinks(defaults);
+
+        try {
+          const app = initializeApp(firebaseConfig);
+          const db = getFirestore(app);
+          const snapshot = await getDoc(doc(db, "general", "legal"));
+
+          if (snapshot.exists()) {
+            applyLinks(snapshot.data());
+            return;
+          }
+        } catch (error) {
+          console.error("Error loading legal links from Firebase", error);
+        }
+      }
+
+      loadLegalLinks();
+    </script>
+  </body>
+</html>
