@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pivot Club | Términos y Condiciones</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #0f1115;
+        color: #f3f4f6;
+        min-height: 100vh;
+      }
+      .wrap {
+        width: min(960px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 36px 0 64px;
+      }
+      a {
+        color: #efcb7f;
+        text-decoration: none;
+      }
+      pre, code { white-space: pre-wrap; }
+      h1,h2,h3,h4 { color: #d7b46a; }
+      p { line-height: 1.7; margin: 8px 0; }
+      ul, ol { margin: 12px 0 24px 20px; }
+      .card {
+        background: #1e232d;
+        border-radius: 16px;
+        padding: 24px;
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 16px 42px rgba(0,0,0,0.35);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <p><a href="PivotSupport.html">← Regresar a soporte</a></p>
+      <section class="card" id="content"></section>
+      <script id="md-source" type="text/plain">
+Términos y Condiciones de Uso de Pivot Entrenamiento Personalizado
+Última actualización: 04/01/2023
+Bienvenido/a a Pivot Entrenamiento Personalizado ("nosotros", "nuestro/a" o "la Aplicación"). Al utilizar nuestra aplicación, aceptas cumplir con los siguientes términos y condiciones. Por favor, revisa detenidamente antes de usar nuestra aplicación.
+
+1. Descripción del Servicio
+La aplicación ofrece un servicio de rutinas personalizadas de entrenamiento basado en tus intereses y preferencias de fitness. Nuestras suscripciones mensuales permiten acceder a la totalidad del contenido y funcionalidades de la aplicación. Puedes cancelar tu suscripción en cualquier momento.
+
+2. Suscripciones y Pagos
+2.1. Al suscribirte aceptas pagar la tarifa mensual correspondiente al plan seleccionado.
+2.2. El pago se cargará en tu cuenta de iTunes/Google Play al confirmar la compra.
+2.3. Las suscripciones se renovarán automáticamente a menos que se cancelen al menos 24 horas antes del final del período actual.
+2.4. Puedes gestionar y cancelar tus suscripciones desde la configuración de tu cuenta en iTunes/Google Play Store.
+
+3. Cancelación de Suscripciones
+Puedes cancelar en cualquier momento. Sin embargo, no se aplican reembolsos por porciones no utilizadas del período.
+
+4. Responsabilidad Limitada
+4.1. Pivot no se hace responsable de lesiones, daños o pérdidas durante o después del uso de nuestras rutinas de entrenamiento.
+4.2. Es responsabilidad del usuario asegurarse de estar físicamente apto/a para realizar las actividades propuestas. Si tienes alguna preocupación médica, consulta a un profesional de la salud antes de comenzar cualquier programa.
+4.3. No garantizamos resultados específicos.
+
+5. Modificaciones en los Términos y Condiciones
+Nos reservamos el derecho de actualizar, modificar o cambiar los términos y condiciones en cualquier momento. Te notificaremos cualquier cambio significativo a través de la aplicación o por otros medios.
+
+6. Privacidad
+Nuestra Política de Privacidad describe cómo recopilamos, utilizamos y protegemos tu información personal.
+
+7. Contacto
+Si tienes preguntas o comentarios sobre estos términos y condiciones, contáctanos en damianfelix22@gmail.com
+      </script>
+    </main>
+
+    <script>
+      function escapeHTML(text) {
+        return text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      function markdownToHtml(md) {
+        const lines = md.split("\n");
+        let html = "";
+        let inList = false;
+
+        for (let line of lines) {
+          const trimmed = line.trim();
+
+          if (trimmed.match(/^#{1,6}\s+/)) {
+            if (inList) { html += "</ul>"; inList = false; }
+            const level = trimmed.match(/^#+/)[0].length;
+            html += `<h${level}>${escapeHTML(trimmed.replace(/^#{1,6}\s+/, ""))}</h${level}>`;
+          } else if (trimmed.match(/^[-*+]\s+/)) {
+            if (!inList) { html += "<ul>"; inList = true; }
+            html += `<li>${escapeHTML(trimmed.replace(/^[-*+]\s+/, ""))}</li>`;
+          } else if (!trimmed) {
+            if (inList) { html += "</ul>"; inList = false; }
+            html += "<br>";
+          } else {
+            if (inList) { html += "</ul>"; inList = false; }
+            html += `<p>${escapeHTML(trimmed)}</p>`;
+          }
+        }
+
+        if (inList) html += "</ul>";
+        return html;
+      }
+
+      function load() {
+        const contentEl = document.getElementById("content");
+        const md = document.getElementById("md-source")?.textContent || "";
+        if (!md.trim()) {
+          contentEl.innerHTML = "<p>Documento no disponible.</p>";
+          return;
+        }
+        contentEl.innerHTML = markdownToHtml(md);
+      }
+
+      load();
+    </script>
+  </body>
+</html>

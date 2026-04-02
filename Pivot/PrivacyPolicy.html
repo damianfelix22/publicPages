@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pivot Club | Política de Privacidad</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #0f1115;
+        color: #f3f4f6;
+        min-height: 100vh;
+      }
+      .wrap {
+        width: min(960px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 36px 0 64px;
+      }
+      a {
+        color: #efcb7f;
+        text-decoration: none;
+      }
+      h1,h2,h3,h4 { color: #d7b46a; }
+      p { line-height: 1.7; margin: 8px 0; }
+      ul, ol { margin: 12px 0 24px 20px; }
+      .card {
+        background: #1e232d;
+        border-radius: 16px;
+        padding: 24px;
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 16px 42px rgba(0,0,0,0.35);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <p><a href="PivotSupport.html">← Regresar a soporte</a></p>
+      <section class="card" id="content"></section>
+      <script id="md-source" type="text/plain">
+Política de Privacidad de Pivot Entrenamiento Personalizado
+Última actualización: 04/01/2024
+Esta Política de Privacidad describe cómo Pivot Entrenamiento Personalizado ("nosotros", "nuestro/a" o "la Aplicación") recopila, utiliza y protege tu información personal cuando utilizas nuestra aplicación.
+
+1. Información Recopilada
+1.1. Información Personal:
+Recopilamos información personal que proporcionas voluntariamente al registrarte o utilizar nuestra aplicación, como tu nombre, dirección de correo electrónico y preferencias de entrenamiento.
+1.2. Información de Uso:
+Recopilamos información sobre cómo interactúas con nuestra aplicación, como las rutinas de entrenamiento seleccionadas, la duración de las sesiones y el rendimiento durante los ejercicios.
+
+2. Uso de la Información
+2.1. Personalización de Contenido:
+Utilizamos la información recopilada para personalizar las rutinas de entrenamiento y el contenido de la aplicación según tus preferencias y objetivos.
+2.2. Mejora del Servicio:
+Utilizamos la información para analizar el rendimiento de la aplicación, identificar áreas de mejora y desarrollar nuevas funcionalidades.
+
+3. Compartir Información con Terceros
+No compartimos tu información personal con terceros sin tu consentimiento expreso, a menos que estemos legalmente obligados a hacerlo.
+
+4. Seguridad de la Información
+Implementamos medidas de seguridad para proteger tu información personal contra accesos no autorizados, alteraciones, divulgación o destrucción no autorizada.
+
+5. Cookies y Tecnologías Similares
+No utilizamos cookies ni tecnologías similares para recopilar información personal.
+
+6. Menores de Edad
+Nuestra aplicación no está dirigida a menores de 13 años. No recopilamos intencionalmente información personal de menores de esa edad.
+
+7. Cambios en la Política de Privacidad
+Nos reservamos el derecho de actualizar o cambiar nuestra política de privacidad en cualquier momento. La fecha de la última actualización se indica al principio de la política.
+
+8. Contacto
+Si tienes preguntas sobre nuestra política de privacidad, contáctanos en damianfelix22@gmail.com
+      </script>
+    </main>
+
+    <script>
+      function escapeHTML(text) {
+        return text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      function markdownToHtml(md) {
+        const lines = md.split("\n");
+        let html = "";
+        let inList = false;
+
+        for (let line of lines) {
+          const trimmed = line.trim();
+
+          if (trimmed.match(/^#{1,6}\s+/)) {
+            if (inList) { html += "</ul>"; inList = false; }
+            const level = trimmed.match(/^#+/)[0].length;
+            html += `<h${level}>${escapeHTML(trimmed.replace(/^#{1,6}\s+/, ""))}</h${level}>`;
+          } else if (trimmed.match(/^[-*+]\s+/)) {
+            if (!inList) { html += "<ul>"; inList = true; }
+            html += `<li>${escapeHTML(trimmed.replace(/^[-*+]\s+/, ""))}</li>`;
+          } else if (!trimmed) {
+            if (inList) { html += "</ul>"; inList = false; }
+            html += "<br>";
+          } else {
+            if (inList) { html += "</ul>"; inList = false; }
+            html += `<p>${escapeHTML(trimmed)}</p>`;
+          }
+        }
+
+        if (inList) html += "</ul>";
+        return html;
+      }
+
+      function load() {
+        const contentEl = document.getElementById("content");
+        const md = document.getElementById("md-source")?.textContent || "";
+        if (!md.trim()) {
+          contentEl.innerHTML = "<p>Documento no disponible.</p>";
+          return;
+        }
+        contentEl.innerHTML = markdownToHtml(md);
+      }
+
+      load();
+    </script>
+  </body>
+</html>

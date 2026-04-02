@@ -95,6 +95,28 @@
         background: var(--panel);
       }
 
+      .card.hidden {
+        display: none;
+      }
+
+      #legal-content h1,
+      #legal-content h2,
+      #legal-content h3,
+      #legal-content h4 {
+        color: var(--accent);
+        margin: 16px 0 8px;
+      }
+
+      #legal-content p,
+      #legal-content li {
+        color: var(--text);
+      }
+
+      #legal-content ul,
+      #legal-content ol {
+        margin: 10px 0 16px 20px;
+      }
+
       .card h2 {
         margin: 0 0 10px;
         font-size: 1.1rem;
@@ -251,13 +273,11 @@
               <a
                 class="link-item"
                 id="terms-link"
-                href="https://terms.pivotcompany.site/useterms.html"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="TermsAndConditions.html"
               >
                 <span>
                   <span class="link-label">Términos y condiciones</span>
-                  <span class="link-value">Ver documento</span>
+                  <span class="link-value">Ir al documento</span>
                 </span>
                 <span class="arrow">↗</span>
               </a>
@@ -265,13 +285,11 @@
               <a
                 class="link-item"
                 id="privacy-link"
-                href="https://terms.pivotcompany.site/privacy.html"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="PrivacyPolicy.html"
               >
                 <span>
                   <span class="link-label">Política de privacidad</span>
-                  <span class="link-value">Ver documento</span>
+                  <span class="link-value">Ir al documento</span>
                 </span>
                 <span class="arrow">↗</span>
               </a>
@@ -285,58 +303,5 @@
       </footer>
     </main>
 
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-      import {
-        getFirestore,
-        doc,
-        getDoc,
-      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-      const defaults = {
-        terms_conditions: "https://terms.pivotcompany.site/useterms.html",
-        privacy_policy: "https://terms.pivotcompany.site/privacy.html",
-      };
-
-      const firebaseConfig = {
-        apiKey: "AIzaSyDCRXv8YXYN-M1X2GB0n5a-YzvNkp40oOo",
-        authDomain: "pivottraining-4678b.firebaseapp.com",
-        projectId: "pivottraining-4678b",
-        storageBucket: "pivottraining-4678b.appspot.com",
-        messagingSenderId: "417119868416",
-        appId: "1:417119868416:web:8e6405ed8d58388897aae5",
-        measurementId: "G-H1F974ND7C",
-      };
-
-      const termsLink = document.getElementById("terms-link");
-      const privacyLink = document.getElementById("privacy-link");
-
-      function applyLinks(data) {
-        const terms = (data.terms_conditions || "").trim() || defaults.terms_conditions;
-        const privacy = (data.privacy_policy || "").trim() || defaults.privacy_policy;
-
-        termsLink.href = terms;
-        privacyLink.href = privacy;
-      }
-
-      async function loadLegalLinks() {
-        applyLinks(defaults);
-
-        try {
-          const app = initializeApp(firebaseConfig);
-          const db = getFirestore(app);
-          const snapshot = await getDoc(doc(db, "general", "legal"));
-
-          if (snapshot.exists()) {
-            applyLinks(snapshot.data());
-            return;
-          }
-        } catch (error) {
-          console.error("Error loading legal links from Firebase", error);
-        }
-      }
-
-      loadLegalLinks();
-    </script>
   </body>
 </html>
